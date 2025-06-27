@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; padding: 40px; text-align: center; }
+        input, button { padding: 10px; margin: 10px; font-size: 16px; }
+        .box { background: white; padding: 20px; display: inline-block; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>🎉 Age Calculator 🎂</h1>
+        <form method="POST">
+            <label>Enter Your Date of Birth:</label><br>
+            <input type="date" name="dob" required>
+            <br>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result and result != 'Invalid date format. Please try again.' %}
+            <h2>🧠 You Are:</h2>
+            <p><strong>{{ result.age }}</strong> years old</p>
+            <p><strong>{{ result.days_alive }}</strong> days alive</p>
+            <p><strong>{{ result.days_to_birthday }}</strong> days until next birthday 🎉</p>
+        {% elif result %}
+            <p style="color:red;">{{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
